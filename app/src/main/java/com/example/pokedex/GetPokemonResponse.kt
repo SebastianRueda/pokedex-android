@@ -1,7 +1,7 @@
 package com.example.pokedex
 import com.google.gson.annotations.SerializedName
 
-data class GetPokemonRespond(
+data class GetPokemonResponse(
     @SerializedName("count")
     val count: Int? = null,
     @SerializedName("next")

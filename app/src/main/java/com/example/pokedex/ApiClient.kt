@@ -20,8 +20,10 @@ class ApiClient {
             return INSTANCE ?: synchronized(this) {
                 val client = OkHttpClient.Builder().apply {
                     if (BuildConfig.DEBUG) {
-                        addInterceptor(HttpLoggingInterceptor(HttpLoggingInterceptor.Logger {
-                            Log.d("ApiClient", it)
+                        addInterceptor(HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
+                            override fun log(message: String) {
+                                Log.d("ApiClient", message)
+                            }
                         }).apply {
                             level = HttpLoggingInterceptor.Level.BODY
                         })
@@ -47,6 +49,6 @@ class ApiClient {
         suspend fun getPokemon(
                 @Query("offset") offset: Int,
                 @Query("limit") limit: Int
-        ): Any
+        ): GetPokemonResponse
     }
 }
