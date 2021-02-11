@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel by lazy { ViewModelProvider(this)[MainViewModel::class.java] }
     private val adapter by lazy { PokemonAdapter() }
     private val pokemons = mutableListOf<Result>()
-
+// test 4
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ActivityMainBinding.inflate(layoutInflater).apply {
