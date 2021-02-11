@@ -1,4 +1,4 @@
-package com.example.pokedex
+package com.example.pokedex.utils
 
 data class Resource<out T>(val status: ResourceStatus, val data: T?, val message: String?) {
     companion object {

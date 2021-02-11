@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/card_radius"
     app:cardElevation="@dimen/card_elevation"
-    app:contentPadding="@dimen/item_spacing">
+    app:contentPadding="@dimen/item_spacing"
+    android:clipToPadding="false">
 
     <LinearLayout
         android:layout_width="match_parent"

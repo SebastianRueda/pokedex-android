@@ -1,7 +1,8 @@
-package com.example.pokedex
+package com.example.pokedex.data.remote
 
 import android.util.Log
 import androidx.viewbinding.BuildConfig
+import com.example.pokedex.data.remote.response.GetPokemonResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

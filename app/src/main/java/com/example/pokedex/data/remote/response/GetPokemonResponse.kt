@@ -1,4 +1,5 @@
-package com.example.pokedex
+package com.example.pokedex.data.remote.response
+import com.example.pokedex.Result
 import com.google.gson.annotations.SerializedName
 
 data class GetPokemonResponse(
