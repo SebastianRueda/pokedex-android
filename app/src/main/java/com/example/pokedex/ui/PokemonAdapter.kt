@@ -19,7 +19,7 @@ class PokemonAdapter : PagingDataAdapter<Result, PokemonAdapter.ViewHolder>(Resu
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position) ?: return
-        holder.onBind(item) //
+        holder.onBind(item) // test 3
     }
 
     inner class ViewHolder(private val itemBinding: ItemPokemonBinding) : RecyclerView.ViewHolder(itemBinding.root) {
