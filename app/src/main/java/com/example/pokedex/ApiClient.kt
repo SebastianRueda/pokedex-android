@@ -6,17 +6,15 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Query
 
 class ApiClient {
     companion object {
         private const val URL_API = "https://pokeapi.co/api/v2/"
 
         @Volatile
-        private var INSTANCE: ApiService? = null
+        private var INSTANCE: PokedexService? = null
 
-        fun getApiClient(): ApiService {
+        fun getApiClient(): PokedexService {
             return INSTANCE ?: synchronized(this) {
                 val client = OkHttpClient.Builder().apply {
                     if (BuildConfig.DEBUG) {
@@ -36,7 +34,7 @@ class ApiClient {
                     .client(client)
                     .build()
 
-                val instance = retrofit.create(ApiService::class.java)
+                val instance = retrofit.create(PokedexService::class.java)
                 INSTANCE = instance
 
                 return instance
@@ -44,11 +42,5 @@ class ApiClient {
         }
     }
 
-    interface ApiService {
-        @GET("pokemon")
-        suspend fun getPokemon(
-                @Query("offset") offset: Int,
-                @Query("limit") limit: Int
-        ): GetPokemonResponse
-    }
+
 }

@@ -1,16 +1,16 @@
-package com.example.pokedex
+package com.example.pokedex.ui
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.pokedex.R
+import com.example.pokedex.Result
 import com.example.pokedex.databinding.ItemPokemonBinding
 import java.util.*
 
-class PokemonAdapter : PagingDataAdapter<Result, PokemonAdapter.ViewHolder>(Result.ResultDiffUtil) {
+class PokemonAdapter : PagingDataAdapter<Result, PokemonAdapter.ViewHolder>(Result) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemBinding = ItemPokemonBinding.bind(LayoutInflater.from(parent.context).inflate(R.layout.item_pokemon, parent, false))
         return ViewHolder(itemBinding)
@@ -25,7 +25,7 @@ class PokemonAdapter : PagingDataAdapter<Result, PokemonAdapter.ViewHolder>(Resu
         fun onBind(item: Result) {
             itemBinding.apply {
                 Glide.with(imageView)
-                    .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + (adapterPosition + 1) + ".png")
+                    .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + (absoluteAdapterPosition + 1) + ".png")
                     .into(imageView)
 
                 val position = bindingAdapterPosition + 1
